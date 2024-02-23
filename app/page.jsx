@@ -1,3 +1,5 @@
+import Feed from '@components/Feed';
+
 const Home = () => {
   return (
     <section className="w-full flex-center-flex-col">
@@ -11,7 +13,7 @@ const Home = () => {
         <p>
             PromptGenius" is a dynamic app designed for users to collaboratively share and explore creative prompts for AI-generated content. With an intuitive interface, users can submit, discover, and exchange prompts tailored to various AI platforms, fostering a vibrant community of writers, artists, and innovators.
         </p>
-        {/* Feed */}
+        <Feed />
     </section>
   )
 }
