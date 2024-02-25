@@ -17,6 +17,15 @@ const handler = NextAuth({
     {
         try {
             await connectToDatabase();
+            const userExists = await User.findOne({email: profile.email});
+            if (!userExists) {
+                await User.create({
+                    email: profile.email,
+                    username: profile.name.replace("","").toLowerCase(),
+                    image: profile.picture
+                });
+            }
+
         } catch (error) {
             console.log(error);
             return false;
