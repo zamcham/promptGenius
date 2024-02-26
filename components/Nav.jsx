@@ -12,12 +12,12 @@ const Nav = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
       setProviders(response);
     }
 
-    setProviders();
+    setUpProviders();
   }, [])
 
   return (
@@ -45,7 +45,7 @@ const Nav = () => {
           </button>
           <Link href="/profile" className='flex gap-2 flex-center'>
             <Image 
-              src="/assets/images/logo.svg"
+              src={session?.user.image}
               alt="User Profile"
               width={37} 
               height={37}
@@ -74,7 +74,7 @@ const Nav = () => {
         {session?.user ? (
           <div className='flex'>
             <Image 
-              src="/assets/images/logo.svg"
+              src={session?.user.image}
               alt="User Profile"
               width={37} 
               height={37}
